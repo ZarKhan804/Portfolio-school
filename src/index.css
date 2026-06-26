@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   BASE RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+}
+
+/* =========================
+   SMOKE / FLOAT EFFECT
+========================= */
+
+@keyframes smokeMove {
+  0% {
+    transform: translateX(-150px) translateY(0px);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateX(0px) translateY(-20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(150px) translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.smoke-layer {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(39, 205, 207, 0.12),
+    transparent 60%
+  );
+  animation: smokeMove 6s linear infinite;
+  filter: blur(80px);
+}
+
+/* =========================
+   ZAAR KHAN ANIMATION
+========================= */
+
+@keyframes zaarAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+}
+
+.animated-name {
+  display: inline-block;
+  animation: zaarAnimation 5s linear infinite;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27cdcf;
+  border-radius: 10px;
+}
+/* =========================
+   PERFECT INFINITE MARQUEE
+========================= */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeMove 25s linear infinite;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  padding-right: 120px;
+  font-weight: 600;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
